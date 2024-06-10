@@ -1,30 +1,18 @@
+import { SignedIn, SignedOut } from "@clerk/nextjs";
 import { index } from "drizzle-orm/mysql-core";
 import Link from "next/link";
 import { db } from "~/server/db";
 
 export const dynamic = "force-dynamic";
-const mockUrls = [
- 
-  "https://utfs.io/f/9420a772-4a3e-4b57-bbf9-ee36c0b10dd1-nrqgva.PNG",
-  "https://utfs.io/f/9420a772-4a3e-4b57-bbf9-ee36c0b10dd1-nrqgva.PNG",
-  "https://utfs.io/f/9420a772-4a3e-4b57-bbf9-ee36c0b10dd1-nrqgva.PNG",
-  "https://utfs.io/f/9420a772-4a3e-4b57-bbf9-ee36c0b10dd1-nrqgva.PNG",
- 
-];
 
-const mockImages = mockUrls.map((url,index) => ({
-  id: index + 1,
-  url
-}));
-
-export default async function HomePage() {
-
+ async function Images() {
   const images = await db.query.images.findMany({
     orderBy: (model, { desc }) => desc(model.id),
   });
-
+  
   return (
-    <main className="">
+ 
+      
       <div className="flex flex-wrap gap-4">
     
         {[...images, ...images, ...images,].map((image, index) => (
@@ -35,6 +23,27 @@ export default async function HomePage() {
           </div>
         ))}
       </div>
+      
+  );
+} 
+
+
+
+
+export default async function HomePage() {
+
+
+
+return (
+  <main className="">
+  <SignedOut>
+  <div className="h-full w-full text-2xl text-center"> please sign in </div>
+  </SignedOut>
+  <SignedIn>
+    <Images />
+  </SignedIn>
+  
     </main>
   );
 }
+
