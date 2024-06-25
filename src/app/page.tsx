@@ -35,7 +35,7 @@ export default async function HomePage() {
         <div className="p-8 pt-40">
           <div className="">
             <div className="mt-6 h-full w-full text-center text-3xl">
-              <h1 className="font-bold text-5xl ">Please sign in above</h1>
+              <h1 className="font-bold text-5xl ">Please sign in above ↗</h1>
             </div>
           </div>
           <div id="modal-root"></div>
