@@ -8,22 +8,22 @@ export function TopNav() {
     <nav className="flex items-center justify-between border-b p-4 text-xl font-bold  ">
       <aside className="flex items-center gap-[2px]">
         <p className="text-3xl font-bold ">Timeless</p>
-        <img
-          alt=""
-          loading="lazy"
-          width={15}
-          height={15}
-          decoding="async"
-          data-nimg={1}
-          style={{ color: "transparent" }}
-          srcSet="/_next/image?url=%2FFuzzieLogo.png&amp;w=16&amp;q=75 1x, /_next/image?url=%2FFuzzieLogo.png&amp;w=32&amp;q=75 2x"
-          src="/_next/image?url=%2FFuzzieLogo.png&amp;w=32&amp;q=75"
-        />
+      
         <p className="text-3xl font-bold"> Treasures</p>
       </aside>
       <div className="flex flex-row gap-4 items-center">
         <SignedOut>
-          <SignInButton />
+          <div className="flex flex-row gap-2">
+            <aside className="flex items-center gap-4">
+              <div className="relative inline-flex h-10 overflow-hidden rounded-full p-[2px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
+                <span className="absolute inset-0 animate-spin bg-gradient-to-r from-purple-400 via-pink-500 to-red-500"></span>
+                <button className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-gray-800 px-3 py-1 text-sm font-medium text-white backdrop-blur-3xl">
+                <SignInButton />
+                </button>
+              </div>
+              
+            </aside>
+          </div>
         </SignedOut>
         <SignedIn>
           <SimpleUploadButton />
